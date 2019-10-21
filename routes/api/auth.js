@@ -19,7 +19,7 @@ router.get('/', auth, async (req, res) => {
 });
 
 
-//Desc log inuser
+//Desc log in user
 router.post('/', 
 //Validate using express
 [
