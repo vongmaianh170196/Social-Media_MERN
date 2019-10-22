@@ -2,6 +2,7 @@ const express = require("express");
 const router = express.Router();
 const {check, validationResult} = require('express-validator/check');
 const User = require('../../Models/User');
+const Post = require('../../Models/Post');
 const gravatar = require('gravatar');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
@@ -75,5 +76,16 @@ async (req, res) => {
 
     
 });
+//Get api/users/posts/:user_id
+//Get posts by user id
+router.get('/posts/:user_id', async(req, res) => {
+    try {
+        const posts = await Post.find({user: req.params.user_id});
+        if(!posts) return res.status(400).json({msg: "There is no post from this user"});
 
+        res.json(posts)
+    } catch (error) {
+        console.log(error.message)
+    }
+})
 module.exports = router;
