@@ -10,7 +10,7 @@ const Register = ({setAlert, register, isAuthenticated}) => {
     const [formData, setFormData] = useState({
         name: '',
         email: '',
-        password:'',
+        password: '',
         password2: ''
     });
 
