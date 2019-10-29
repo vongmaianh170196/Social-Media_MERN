@@ -7,7 +7,6 @@ import {addEducation} from '../../actions/profile';
 const AddEducation = ({addEducation, history}) => {
     const [formData, setFormData] = useState({
         school: '',
-        degree: '',
         fieldOfStudy: '',
         from: '',
         to: '',
@@ -17,7 +16,7 @@ const AddEducation = ({addEducation, history}) => {
 
     const [toDateDisable, toggleDateDisable] = useState(false);
 
-    const {school, degree, fieldOfStudy, from, to, current, description} = formData;
+    const {school, fieldOfStudy, from, to, current, description} = formData;
 
     const onChange = e => setFormData({...formData, [e.target.name]: e.target.value})
 
@@ -37,21 +36,21 @@ const AddEducation = ({addEducation, history}) => {
         <div className="form-group">
           <input type="text" placeholder="* School/Bootcamp" name="school" value={school} onChange={e => onChange(e)} required />
         </div>
-        <div className="form-group">
+        {/* <div className="form-group">
           <input type="text" placeholder="* Degree" name="degree" required value={degree} onChange={e => onChange(e)}/>
-        </div>
+        </div> */}
         <div className="form-group">
-          <input type="text" placeholder="Field of Study" name="fieldOfStudy" value={fieldOfStudy} onChange={e => onChange(e)}/>
+          <input required type="text" placeholder="* Field of Study" name="fieldOfStudy" value={fieldOfStudy} onChange={e => onChange(e)}/>
         </div>
         <div className="form-group">
           <h4>From Date</h4>
-          <input type="date" name="from" value={from} onChange={e => onChange(e)}/>
+          <input type="date" name="from" value={from} onChange={e => onChange(e)} required/>
         </div>
          <div className="form-group">
           <p><input type="checkbox" name="current" value={current} checked={current} onChange={ e => {
               setFormData({...formData, current: !current});
               toggleDateDisable(!toDateDisable);
-          }}/>{' '} Current Job</p>
+          }}/>{' '} Current</p>
         </div>
         <div className="form-group">
           <h4>To Date</h4>

@@ -3,8 +3,9 @@ const router = express.Router();
 const request = require('request');
 const config = require('config');
 const auth = require('../../middleware/auth');
-const Profile = require('../../Models/Profile')
+const Profile = require('../../Models/Profile');
 const User = require('../../Models/User');
+const Post = require('../../Models/Post');
 const {check, validationResult} = require('express-validator/check');
 
 //Get api/profile/me
@@ -15,9 +16,10 @@ router.get('/me', auth, async (req, res) => {
         if(!profile){
             return res.status(400).json({msg: 'Profile could not be found'})
         }
+        console.log("something 2")
         res.json(profile)
     }catch(err){
-        console.log(err.message);
+        console.log("Hello" + err.message);
         res.status(500).send('Server error')
     }
 });
@@ -93,7 +95,6 @@ async (req, res) => {
         console.log(err.message)
         res.status(500).send('Server error')
     }
-    res.send('Hello')
 });
 
 //Get api/profile
@@ -136,7 +137,8 @@ router.delete('/', auth, async(req, res) => {
         await Profile.findOneAndRemove({user: req.user.id});
         //Remove user
         await User.findOneAndRemove({_id: req.user.id});
-        
+        //Remove posts
+        await Post.deleteMany({user: req.user.id})
        res.json({msg: "Remove"})
     }catch(err){
         console.log(err.message)
@@ -157,7 +159,7 @@ router.put('/experience', [
     ], async(req, res) => {
         const errors = validationResult(req);
         if(!errors.isEmpty()){
-            return res.status(400).json({errs: errors.array()});
+            return res.status(400).json({error: errors.array()});
         }
 
         const{
@@ -250,7 +252,7 @@ router.put('/education', [
     ], async(req, res) => {
         const errors = validationResult(req);
         if(!errors.isEmpty()){
-            return res.status(400).json({errs: errors.array()});
+            return res.status(400).json({error: errors.array()});
         }
 
         const{
@@ -276,7 +278,6 @@ router.put('/education', [
             await profile.save();
             res.json(profile)
         }catch(err){
-            console.log(err.message)
             res.status(500).send('server error')
         }
 })

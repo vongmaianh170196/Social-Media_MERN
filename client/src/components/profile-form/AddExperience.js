@@ -46,13 +46,13 @@ const AddExperience = ({addExperience, history}) => {
         </div>
         <div className="form-group">
           <h4>From Date</h4>
-          <input type="date" name="from" onChange={e => onChange(e)}/>
+          <input  type="date" name="from" onChange={e => onChange(e)}/>
         </div>
          <div className="form-group">
           <p><input type="checkbox" name="current" value={current} checked={current} onChange={ e => {
               setFormData({...formData, current: !current});
               toggleDateDisable(!toDateDisable);
-          }}/>{' '} Current Job</p>
+          }}/>{' '} Current</p>
         </div>
         <div className="form-group">
           <h4>To Date</h4>
