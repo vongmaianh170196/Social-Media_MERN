@@ -16,7 +16,7 @@ router.get('/me', auth, async (req, res) => {
         if(!profile){
             return res.status(400).json({msg: 'Profile could not be found'})
         }
-        console.log("something 2")
+        
         res.json(profile)
     }catch(err){
         console.log("Hello" + err.message);
@@ -111,7 +111,7 @@ router.get('/', async(req, res) => {
 })
 
 //Get api/profile/user/:user_id
-//desc get profile by id
+//desc get profile by user id
 
 router.get('/user/:user_id', async(req, res) => {
     try{

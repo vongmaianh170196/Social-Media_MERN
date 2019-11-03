@@ -1,5 +1,5 @@
 import React, {Fragment, useState} from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import { withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {addExperience} from '../../actions/profile';
@@ -46,7 +46,7 @@ const AddExperience = ({addExperience, history}) => {
         </div>
         <div className="form-group">
           <h4>From Date</h4>
-          <input  type="date" name="from" onChange={e => onChange(e)}/>
+          <input  type="date" name="from" value={from} onChange={e => onChange(e)}/>
         </div>
          <div className="form-group">
           <p><input type="checkbox" name="current" value={current} checked={current} onChange={ e => {
@@ -56,7 +56,7 @@ const AddExperience = ({addExperience, history}) => {
         </div>
         <div className="form-group">
           <h4>To Date</h4>
-          <input type="date" name="to" disabled={toDateDisable ? 'disabled' : ''} onChange={e => onChange(e)}/>
+          <input type="date" name="to" disabled={toDateDisable ? 'disabled' : ''} value={to} onChange={e => onChange(e)}/>
         </div>
         <div className="form-group">
           <textarea

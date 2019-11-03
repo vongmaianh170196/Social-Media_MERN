@@ -1,5 +1,5 @@
 import React, {useState, Fragment, useEffect} from 'react';
-import {Link, withRouter, Redirect} from 'react-router-dom';
+import {Link, withRouter} from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import {createProfile, getCurrentProfile} from '../../actions/profile';
@@ -38,7 +38,7 @@ const EditProfile = ({profile:{profile, loading}, getCurrentProfile, createProfi
             youtube: loading || !profile.social ? '' : profile.social.youtube,
             instagram: loading || !profile.social ? '' : profile.social.instagram,
         });
-    }, [loading])
+    }, [loading, getCurrentProfile])
 
     const {
         company,
