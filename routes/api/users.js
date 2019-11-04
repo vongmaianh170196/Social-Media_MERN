@@ -71,7 +71,7 @@ async (req, res) => {
     }
     catch(err){
         console.log(err.message);
-        res.status(500).send("Server erro")
+        res.status(500).send("Server error")
     }
 
     

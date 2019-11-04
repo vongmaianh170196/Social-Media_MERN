@@ -14,14 +14,14 @@ import{
 }from './types';
 
 export const getCurrentProfile = () => async dispatch => {
-    try {
-        
+    try {        
         const res = await axios.get('/api/profile/me');
         dispatch({
             type: GET_PROFILE,
             payload: res.data
         })
     } catch (error) {
+        
         dispatch({
             type: PROFILE_ERROR,
             payload: {msg: error.response.statusText, status: error.response.status}
@@ -43,6 +43,7 @@ export const getProfiles = () => async dispatch => {
             type: PROFILE_ERROR,
             payload: {msg: error.response.statusText, status: error.response.status}
         });
+        
     }
 }
 export const getProfileByUserId = userId => async dispatch => {

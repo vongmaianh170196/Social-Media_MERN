@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import Spinner from '../layouts/Spinner';
 import {getPost} from '../../actions/post';
-import PostItem from '../posts/PostItem';
+import PostSingleItem from './PostSingleItem';
 import {Link} from 'react-router-dom';
 import CommentForm from './CommentForm';
 import CommentItem from './CommentItem';
@@ -16,7 +16,7 @@ const Post = ({getPost, post: {post, loading}, match}) => {
         <Link to='/posts' className='btn'>
         Back to Posts
         </Link>
-        <PostItem post={post}/>
+        <PostSingleItem post={post}/>
         <CommentForm postId={post._id}/>
         <div className='comments'>
             {post.comments.map(cmt => <CommentItem key={cmt._id} comment={cmt} postId={post._id}/>)}
