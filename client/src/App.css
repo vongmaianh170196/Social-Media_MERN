@@ -17,7 +17,6 @@ body {
   font-family: 'Raleway', sans-serif;
   font-size: 1rem;
   line-height: 1.6;
-  background-color: #fff;
   color: #333;
 }
 
@@ -137,6 +136,7 @@ img {
   margin-right: 0.5rem;
   transition: opacity 0.2s ease-in;
   outline: none;
+  border-radius: .25em;
 }
 
 .badge {
@@ -226,7 +226,7 @@ img {
 
 /* Overlay */
 .dark-overlay {
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: white;
   position: absolute;
   top: 0;
   left: 0;
@@ -333,12 +333,12 @@ button {
 /* Landing Page */
 .landing {
   position: relative;
-  background: url('./img/showcase.jpg') no-repeat center center/cover;
+  background-color: white;
   height: 100vh;
 }
 
 .landing-inner {
-  color: #fff;
+  color: rgb(0,153,153);
   height: 100%;
   width: 80%;
   margin: auto;

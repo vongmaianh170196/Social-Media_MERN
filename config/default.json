@@ -1,5 +1,5 @@
 {
-    "mongoURI": "mongodb+srv://<username>:<password>@socialmediacluster-4rjac.mongodb.net/test?retryWrites=true&w=majority",
+    "mongoURI": "mongodb+srv://vongmaianh171:Wednesday170196@socialmediacluster-4rjac.mongodb.net/test?retryWrites=true&w=majority",
     "jwtSecret": "mysecrettoken",
     "githubClientId": "<githubClientId>",
     "githubSecret": "<githubSecret>"
